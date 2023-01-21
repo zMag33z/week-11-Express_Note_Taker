@@ -37,11 +37,14 @@ const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    // here the note is strung so it can be directly pushed into the database.
     body: JSON.stringify(note),
   });
 
-const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
+const deleteNote = (noteId) =>
+
+// here an id to the note is sent to confirm proper removal.
+  fetch(`/api/notes/${noteId}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   });
@@ -49,9 +52,7 @@ const deleteNote = (id) =>
 // Hides the save button then sets an attribute readonly to true. causes input box to only output value given.
 const renderActiveNote = () => {
   hide(saveNoteBtn);
-
   if (activeNote.id) {
-
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
@@ -79,10 +80,10 @@ const handleNoteSave = () => {
 const handleNoteDelete = (e) => {
   e.stopPropagation();
 
-// here the data is being parsed
-  const note = e.target;
+// here the data is being parsed to target id.
+  const note = e.target;  
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
+  console.log(noteId);
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -161,7 +162,6 @@ const renderNoteList = async (notes) => {
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
-
     noteListItems.push(li);
   });
 

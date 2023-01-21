@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routeNotes/api');
-// const savedNotes = require('./db/db.json');
-
 
 const PORT = process.env.PORT || 3001;
 
@@ -24,5 +22,8 @@ app.get('/', (req, res) => {res.sendFile(path.join(__dirname, '/public/index.htm
 // link from index to notes
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
 
-// ask if i need to remove this???
-app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT} or Heroku ${PORT}`));
+// app listen to port for localhost and confirm
+app.listen(PORT, () => console.log(`\n\x1b[32mApp listening at \x1b[34mhttp://localhost:${PORT}\x1b[0m\n`));
+
+
+/*  zMaG33z  */

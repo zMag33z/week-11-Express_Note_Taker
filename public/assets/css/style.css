@@ -74,5 +74,9 @@ body {
   border-left: none;
   border-right: none;
   padding: 20px;
-  cursor: pointer;
+}
+
+/* my addition - don't like the pointer on whole box unsure if on delete icon.*/
+.list-container .list-group-item:hover {
+  background-color: rgb(212, 212, 212);
 }

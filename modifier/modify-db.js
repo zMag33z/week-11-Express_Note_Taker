@@ -8,7 +8,6 @@ const readTHISfile = () => {
 const re_configureIDs = (database) => {
     for(let i = 0; i <= database.length - 1; i ++){
         database[i].id = i + 1;
-        console.log(database[i].id);
     }
     return database;
 }
@@ -16,7 +15,7 @@ const re_configureIDs = (database) => {
 const saveChange = (database) => {
 
     fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(database, null, 2), err => {
-        err ? console.error(err) : console.log('Note saved');
+        err ? console.error(err) : console.log('\n\x1b[32mFile Updated\x1b[0m\n');
     });
 
 }

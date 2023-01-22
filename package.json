@@ -1,7 +1,7 @@
 {
     "name": "note-taker",
     "version": "1.0.0",
-    "description": "",
+    "description": "Note taker using node package express.",
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +10,8 @@
     "license": "ISC",
     "dependencies": {
         "express": "^4.16.4"
+    },
+    "engines": {
+        "node": "^18.12.1"
     }
 }
